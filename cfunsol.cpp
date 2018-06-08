@@ -10,7 +10,7 @@ This will as a series of questions and also perform the specified calculations
 #include<string>
 #include<cmath>
 #include<iostream>
-#include<ctype.h>
+#include<cctype>
 #include<iomanip>
 #include<cstdlib>
 #include<string>
@@ -74,12 +74,12 @@ else if (choice == 2) {  //convert hex to dec
 			else if (hexadecimal[i] == '7') decimal += 7 * (1 << (4 * pow));
 			else if (hexadecimal[i] == '8') decimal += 8 * (1 << (4 * pow));
 			else if (hexadecimal[i] == '9') decimal += 9 * (1 << (4 * pow));
-			else if (hexadecimal[i] == '10') decimal += 10 * (1 << (4 * pow));
-			else if (hexadecimal[i] == '11') decimal += 11 * (1 << (4 * pow));
-			else if (hexadecimal[i] == '12') decimal += 12 * (1 << (4 * pow));
-			else if (hexadecimal[i] == '13') decimal += 13 * (1 << (4 * pow));
-			else if (hexadecimal[i] == '14') decimal += 14 * (1 << (4 * pow));
-			else if (hexadecimal[i] == '15') decimal += 15 * (1 << (4 * pow));
+			else if (hexadecimal[i] == 'A') decimal += 10 * (1 << (4 * pow));
+			else if (hexadecimal[i] == 'B') decimal += 11 * (1 << (4 * pow));
+			else if (hexadecimal[i] == 'C') decimal += 12 * (1 << (4 * pow));
+			else if (hexadecimal[i] == 'D') decimal += 13 * (1 << (4 * pow));
+			else if (hexadecimal[i] == 'E') decimal += 14 * (1 << (4 * pow));
+			else if (hexadecimal[i] == 'F') decimal += 15 * (1 << (4 * pow));
 			pow++;
 		}
 		cout << "\nThe Decimal verson of " << (hexadecimal) << " is " << (decimal) << "\n" << endl;
