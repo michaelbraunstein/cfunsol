@@ -21,10 +21,11 @@ using namespace std;
 
 int cosine, logarithms, convert, choice, conv;
 char ext;
+string hexadecimal;
 
 int main(){
-	cout << "Menu\n"  << "Type 1 to find logarithms\n" << endl << "Type 2 for converting between decimals and hex\n" 
-	<< endl << "Type 3 for finding cosines\n" << endl << "Type 4 to exit to leave the program\n" << endl;
+	cout << "Menu\n" << endl << "Type 1 to find logarithms\n" << endl << "Type 2 for converting between decimals and hex\n" 
+	<< endl << "Type 3 for finding cosines\n" << endl << "Type 4 to convert a cstring date " << endl << "Type 5 to exit to leave the program\n" << endl;
 cin >> choice;
 
 if (choice == 1) { //logarithm
@@ -52,8 +53,8 @@ if (choice == 1) { //logarithm
 
 else if (choice == 2) {  //convert hex to dec
 	int decimal, remain, choice, caps, pow, dec2;
-	string hexadecimal, decimalout;
 	bool down = true;
+	
 
 	cout << "\n Type in a number 3 if you want to convert hex to decimal or type 6 if you want to convert dec to hedadecimal: " << "\n" << endl;
 	cin >> (choice);
@@ -87,7 +88,7 @@ else if (choice == 2) {  //convert hex to dec
 	}
 
 	if (choice == 6) {
-		hexadecimal == "";
+		string hexadecimal = "";
 		int decimal, remain;
 		
 		cout << "\nIf you want to display the hex in capital letters type 9, \nif you want to display the hex in lower case press 8. " << endl;
@@ -118,11 +119,17 @@ else if (choice == 2) {  //convert hex to dec
 		else if (decimal == 15) hexadecimal = "f" + hexadecimal;
 
 		if (down == false) {
-			for (int i = 0; i = hexadecimal.length(); i++)
-				hexadecimal[i] = toupper(hexadecimal[i]);
+			for (int i = 0; i = hexadecimal.length(); i--)
+				hexadecimal[i] = tolower(hexadecimal[i]);
+				//putchar(tolower(hexadecimal(i)));
+
 
 		}
 		cout << "\nThe hexadecimal of " << dec2 << " is " << "H0" << hexadecimal << "\n" << endl;
+
+		
+
+
 
 		
 	}
@@ -179,6 +186,13 @@ else if (choice == 3) {
 }
 
 else if (choice == 4) {
+	int date;
+	cout << "Enter the date in the format of mm/dd/yyyy to convert to form of mm-dd-yyyy using cstring functions.\n" << endl;
+	cin >> date;
+}
+
+
+else if (choice == 5) {
 	{
 	
 		
