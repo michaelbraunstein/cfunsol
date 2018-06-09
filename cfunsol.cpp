@@ -90,14 +90,14 @@ else if (choice == 2) {  //convert hex to dec
 	if (choice == 6) {
 		string hexadecimal = "";
 		int decimal, remain;
-		
-		cout << "\nIf you want to display the hex in capital letters type 9, \nif you want to display the hex in lower case press 8. " << endl;
-		cin >> caps;
-		cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
-		cin >> decimal;
 
+		cout << "\nIf you want to display the hex in lower case letters type 8, \nif you want to display the hex in upper case press 9. " << endl;
+		cin >> caps;
 		if (caps == 9) down = false;
-		else down = true;
+		else down = true;{
+
+			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+			cin >> decimal;
 		dec2 = decimal;
 		while (decimal > 15) {
 			remain = decimal % 16;
@@ -117,8 +117,34 @@ else if (choice == 2) {  //convert hex to dec
 		else if (decimal == 13) hexadecimal = "d" + hexadecimal;
 		else if (decimal == 14) hexadecimal = "e" + hexadecimal;
 		else if (decimal == 15) hexadecimal = "f" + hexadecimal;
+	}
 
 		if (down == false) {
+			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+			cin >> decimal;
+
+			dec2 = decimal;
+			while (decimal > 15) {
+				remain = decimal % 16;
+				decimal = decimal / 16;
+				if (remain < 10) hexadecimal = std::to_string(remain) + hexadecimal;
+				else if (remain == 10) hexadecimal = "a" + hexadecimal;
+				else if (remain == 11) hexadecimal = "b" + hexadecimal;
+				else if (remain == 12) hexadecimal = "c" + hexadecimal;
+				else if (remain == 13) hexadecimal = "d" + hexadecimal;
+				else if (remain == 14) hexadecimal = "e" + hexadecimal;
+				else if (remain == 15) hexadecimal = "f" + hexadecimal;
+			}
+			if (decimal < 10) hexadecimal = std::to_string(decimal) + hexadecimal;
+			else if (decimal == 10) hexadecimal = "a" + hexadecimal;
+			else if (decimal == 11) hexadecimal = "b" + hexadecimal;
+			else if (decimal == 12) hexadecimal = "c" + hexadecimal;
+			else if (decimal == 13) hexadecimal = "d" + hexadecimal;
+			else if (decimal == 14) hexadecimal = "e" + hexadecimal;
+			else if (decimal == 15) hexadecimal = "f" + hexadecimal;
+
+
+
 			for (int i = 0; i = hexadecimal.length(); i--)
 				hexadecimal[i] = tolower(hexadecimal[i]);
 				//putchar(tolower(hexadecimal(i)));
