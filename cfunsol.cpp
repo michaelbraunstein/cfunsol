@@ -7,7 +7,10 @@ This will as a series of questions and also perform the specified calculations
 
 */
 
-#include<string>
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+#include<cstring>
 #include<cmath>
 #include<iostream>
 #include<cctype>
@@ -15,6 +18,7 @@ This will as a series of questions and also perform the specified calculations
 #include<cstdlib>
 #include<string>
 #include<stdio.h>
+#include<algorithm>
 #include<stdlib.h>
 
 using namespace std;
@@ -24,8 +28,7 @@ char ext;
 string hexadecimal;
 
 int main(){
-	cout << "Menu\n" << endl << "Type 1 to find logarithms\n" << endl << "Type 2 for converting between decimals and hex\n" 
-	<< endl << "Type 3 for finding cosines\n" << endl << "Type 4 to convert a cstring date " << endl << "Type 5 to exit to leave the program\n" << endl;
+	cout << "Menu\n" << endl << "Type 1 to find logarithms\n" << endl << "Type 2 for converting between decimals and hex using the old fashioned coputation method\n" << endl << "Type 3 for finding cosines\n" << endl << "Type 4 to convert a cstring date\n " << endl << "Type 5 to convert between hex and decimal using a cstring method\n" << endl << "Type 6 to exit to leave the program\n" << endl;
 cin >> choice;
 
 if (choice == 1) { //logarithm
@@ -52,7 +55,7 @@ if (choice == 1) { //logarithm
 }
 
 else if (choice == 2) {  //convert hex to dec
-	int decimal, remain, choice, caps, pow, dec2;
+	int decimal, choice, caps, pow, dec2;
 	bool down = true;
 	
 
@@ -120,44 +123,14 @@ else if (choice == 2) {  //convert hex to dec
 	}
 
 		if (down == false) {
-			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
-			cin >> decimal;
-
-			dec2 = decimal;
-			while (decimal > 15) {
-				remain = decimal % 16;
-				decimal = decimal / 16;
-				if (remain < 10) hexadecimal = std::to_string(remain) + hexadecimal;
-				else if (remain == 10) hexadecimal = "a" + hexadecimal;
-				else if (remain == 11) hexadecimal = "b" + hexadecimal;
-				else if (remain == 12) hexadecimal = "c" + hexadecimal;
-				else if (remain == 13) hexadecimal = "d" + hexadecimal;
-				else if (remain == 14) hexadecimal = "e" + hexadecimal;
-				else if (remain == 15) hexadecimal = "f" + hexadecimal;
-			}
-			if (decimal < 10) hexadecimal = std::to_string(decimal) + hexadecimal;
-			else if (decimal == 10) hexadecimal = "a" + hexadecimal;
-			else if (decimal == 11) hexadecimal = "b" + hexadecimal;
-			else if (decimal == 12) hexadecimal = "c" + hexadecimal;
-			else if (decimal == 13) hexadecimal = "d" + hexadecimal;
-			else if (decimal == 14) hexadecimal = "e" + hexadecimal;
-			else if (decimal == 15) hexadecimal = "f" + hexadecimal;
-
-
-
-			for (int i = 0; i = hexadecimal.length(); i--)
-				hexadecimal[i] = tolower(hexadecimal[i]);
+			for (int i = 0; i < hexadecimal.length(); i++)
+				hexadecimal[i] = toupper(hexadecimal[i]);
 				//putchar(tolower(hexadecimal(i)));
-
-
+				cout << "\nThe hexadecimal of " << dec2 << " is " << "H0" << hexadecimal << "\n" << endl;
 		}
-		cout << "\nThe hexadecimal of " << dec2 << " is " << "H0" << hexadecimal << "\n" << endl;
-
-		
 
 
-
-		
+		system("pause");
 	}
 
 
@@ -212,29 +185,106 @@ else if (choice == 3) {
 }
 
 else if (choice == 4) {
-	int date;
+	//string date;
+	//string dash, slash, date;
+	
+char date[11], *dptr, slash[11];
+	
+	//char a[3], b[3], c[5], d[11];
+	char d[11];
+	
 	cout << "Enter the date in the format of mm/dd/yyyy to convert to form of mm-dd-yyyy using cstring functions.\n" << endl;
+	//cin.getline(date, sizeof(date), '\n');
 	cin >> date;
-}
+	strcpy (slash, date);
+	dptr = strtok (date, "/ ");
+	strcpy (d, dptr);
+	strcat (d, "-");
 
+	dptr = strtok ( '\0' ,"/");
+	strcat (d, dptr);
+	strcat(d, "-");
+
+	dptr = strtok ('\0', " /");
+	strcat (d, dptr);
+	
+	//replace(date.begin(), date.end(), '/', '-');
+
+	cout << "The old date of " << slash << " now reads " << d << endl;
+
+
+
+
+}
 
 else if (choice == 5) {
-	{
-	
-		
-		
-		cout << "Exiting " << endl;
+
+
+	int decimal, hexadecimal, choice, pow, dec2;
+	// bool down = true;
+
+
+	cout << "\n Type in a number 3 if you want to convert hex to decimal using " << endl;
+	cout << " cstring or type 6 if you want to convert dec to hexadecimal using cstring: " << "\n" << endl;
+	cin >> choice;
+	pow = 0;
+	decimal = 0;
+
+	if (choice == 3) {
+		cout << "\n Enter the hex that you want to convert to decimal: \n " << endl;
+		cin >> hex >> hexadecimal;
+
+		cout << "The decimal  is " ;
+		std::cout << std::dec << hexadecimal << endl << '\n';
+
+		//cout << "\nThe Decimal verson of " << (hexadecimal) << " is " << (decimal) << "\n" << endl;
+		system("pause");
+
 	}
-	exit(EXIT_SUCCESS);
+
+
+	if (choice == 6) {
+		string hexadecimal = "";
+		int decimal;
+		boolalpha;
+		bool dn = 0;
+		cout << "If you want to use cstring to display the hex in lower case letters type true \n ";
+		cout << "If you want to display the hex in upper case type false. " << endl;
+		std::cout << std::boolalpha << dn << '\n';
+		//std::cout << std::noboolalpha << down << '\n';
+		//return 0;
+		cin >> boolalpha >> dn;
+		if (dn == true) {
+		 
+
+			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+			cin >> decimal;
+			dec2 = decimal;
+			cout << "The Hexadecmil of " << dec2 << " is " << endl;
+			std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
+			system("pause");
+		}
+		if (dn == false) {
+			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+			cin >> decimal;
+			dec2 = decimal;
+			cout << "The Hexadecmil of " << dec2 << " is " << endl;
+			std::cout << showbase << uppercase << std::hex << decimal << endl << '\n';
+			system("pause");
+		}
+		system("pause");
+	}
 
 
 
+	else if (choice == 6) {
+		{
+			cout << "Exiting " << endl;
+		}
+		exit(EXIT_SUCCESS);
+	}
+	cout << "To exit the program type e :\n " << endl;
+	cin >> ext;
 }
-
-
-cout << "To exit the program type e :\n " << endl;
-cin >> ext;
-
-
 
 }
