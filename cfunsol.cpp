@@ -246,15 +246,19 @@ else if (choice == 5) {
 	if (choice == 6) {
 		string hexadecimal = "";
 		int decimal;
+		char chc;
 		boolalpha;
 		bool dn = 0;
 		cout << "If you want to use cstring to display the hex in lower case letters type true \n ";
 		cout << "If you want to display the hex in upper case type false. " << endl;
-		std::cout << std::boolalpha << dn << '\n';
-		//std::cout << std::noboolalpha << down << '\n';
-		//return 0;
-		cin >> boolalpha >> dn;
-		if (dn == true) {
+		cin >> chc;
+		if (chc == true) dn == 1; {
+
+			std::cout << std::boolalpha << dn << '\n';
+			//std::cout << std::noboolalpha << down << '\n';
+			//return 0;
+			cin >> boolalpha >> dn; }
+		if (dn == 1) {
 		 
 
 			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
@@ -264,7 +268,8 @@ else if (choice == 5) {
 			std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
 			system("pause");
 		}
-		if (dn == false) {
+		else if (chc = false) dn == 2;{
+		//if (dn == 2) {
 			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
 			cin >> decimal;
 			dec2 = decimal;
