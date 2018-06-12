@@ -92,7 +92,7 @@ else if (choice == 2) {  //convert hex to dec
 
 	if (choice == 6) {
 		string hexadecimal = "";
-		int decimal, remain;
+		int decimal, remain, i=0;
 
 		cout << "\nIf you want to display the hex in lower case letters type 8, \nif you want to display the hex in upper case press 9. " << endl;
 		cin >> caps;
@@ -113,6 +113,7 @@ else if (choice == 2) {  //convert hex to dec
 			else if (remain == 14) hexadecimal = "e" + hexadecimal;
 			else if (remain == 15) hexadecimal = "f" + hexadecimal;
 		}
+
 		if (decimal < 10) hexadecimal = std::to_string(decimal) + hexadecimal;
 		else if (decimal == 10) hexadecimal = "a" + hexadecimal;
 		else if (decimal == 11) hexadecimal = "b" + hexadecimal;
@@ -211,10 +212,6 @@ char date[11], *dptr, slash[11];
 	//replace(date.begin(), date.end(), '/', '-');
 
 	cout << "The old date of " << slash << " now reads " << d << endl;
-
-
-
-
 }
 
 else if (choice == 5) {
@@ -234,7 +231,7 @@ else if (choice == 5) {
 		cout << "\n Enter the hex that you want to convert to decimal: \n " << endl;
 		cin >> hex >> hexadecimal;
 
-		cout << "The decimal  is " ;
+		cout << "The decimal  is ";
 		std::cout << std::dec << hexadecimal << endl << '\n';
 
 		//cout << "\nThe Decimal verson of " << (hexadecimal) << " is " << (decimal) << "\n" << endl;
@@ -249,36 +246,47 @@ else if (choice == 5) {
 		char chc;
 		boolalpha;
 		bool dn = 0;
+
+		cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+		cin >> decimal;
+		dec2 = decimal;
+
 		cout << "If you want to use cstring to display the hex in lower case letters type true \n ";
 		cout << "If you want to display the hex in upper case type false. " << endl;
 		cin >> chc;
-		if (chc == true) dn == 1; {
+		if (chc == true) (dn == 1);
+		else if (chc == false)(dn == false);
+		 {
+			if (dn == 1) {
 
-			std::cout << std::boolalpha << dn << '\n';
-			//std::cout << std::noboolalpha << down << '\n';
-			//return 0;
-			cin >> boolalpha >> dn; }
-		if (dn == 1) {
-		 
+				std::cout << std::boolalpha << dn << '\n';
+				//std::cout << std::noboolalpha << down << '\n';
+				//return 0;
+				//cin >> boolalpha >> dn;
+			
+			}
+			//if (dn == 1) {
+			
 
-			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
-			cin >> decimal;
-			dec2 = decimal;
+			
+			
 			cout << "The Hexadecmil of " << dec2 << " is " << endl;
 			std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
 			system("pause");
 		}
-		else if (chc = false) dn == 2;{
-		//if (dn == 2) {
-			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
-			cin >> decimal;
-			dec2 = decimal;
+
+		if (dn == 0) {
+			//if (dn == 2) {
+			//cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+			//cin >> decimal;
+			
 			cout << "The Hexadecmil of " << dec2 << " is " << endl;
 			std::cout << showbase << uppercase << std::hex << decimal << endl << '\n';
 			system("pause");
 		}
 		system("pause");
 	}
+
 
 
 
@@ -291,5 +299,6 @@ else if (choice == 5) {
 	cout << "To exit the program type e :\n " << endl;
 	cin >> ext;
 }
+
 
 }
