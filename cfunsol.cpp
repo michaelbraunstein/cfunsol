@@ -61,7 +61,7 @@ else if (choice == 2) {  //convert hex to dec
 		cout << "\n Enter the hex that you want to convert to decimal: \n " << endl;
 		cin >> hexadecimal;
 		for (int i = hexadecimal.length() - 1; i >= 0; i--) {
-			     if (hexadecimal[i] == '0') decimal += 0 * (1 <<(4 *pow));
+			if (hexadecimal[i] == '0') decimal += 0 * (1 << (4 * pow));
 			else if (hexadecimal[i] == '1') decimal += 1 * (1 << (4 * pow));
 			else if (hexadecimal[i] == '2') decimal += 2 * (1 << (4 * pow));
 			else if (hexadecimal[i] == '3') decimal += 3 * (1 << (4 * pow));
@@ -85,189 +85,193 @@ else if (choice == 2) {  //convert hex to dec
 
 	if (choice == 6) {
 		string hexadecimal = "";
-		int decimal, remain, i=0;
+		int decimal, remain, i = 0;
 
 		cout << "\nIf you want to display the hex in lower case letters type 8, \nif you want to display the hex in upper case press 9. " << endl;
 		cin >> caps;
 		if (caps == 9) down = false;
-		else down = true;{
+		else down = true; {
 
 			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
 			cin >> decimal;
-		dec2 = decimal;
-		while (decimal > 15) {
-			remain = decimal % 16;
-			decimal = decimal / 16;
-			if (remain < 10) hexadecimal = std::to_string(remain) + hexadecimal;
-			else if (remain == 10) hexadecimal = "a" + hexadecimal;
-			else if (remain == 11) hexadecimal = "b" + hexadecimal;
-			else if (remain == 12) hexadecimal = "c" + hexadecimal;
-			else if (remain == 13) hexadecimal = "d" + hexadecimal;
-			else if (remain == 14) hexadecimal = "e" + hexadecimal;
-			else if (remain == 15) hexadecimal = "f" + hexadecimal;
-		}
+			dec2 = decimal;
+			while (decimal > 15) {
+				remain = decimal % 16;
+				decimal = decimal / 16;
+				if (remain < 10) hexadecimal = std::to_string(remain) + hexadecimal;
+				else if (remain == 10) hexadecimal = "a" + hexadecimal;
+				else if (remain == 11) hexadecimal = "b" + hexadecimal;
+				else if (remain == 12) hexadecimal = "c" + hexadecimal;
+				else if (remain == 13) hexadecimal = "d" + hexadecimal;
+				else if (remain == 14) hexadecimal = "e" + hexadecimal;
+				else if (remain == 15) hexadecimal = "f" + hexadecimal;
+			}
 
-		if (decimal < 10) hexadecimal = std::to_string(decimal) + hexadecimal;
-		else if (decimal == 10) hexadecimal = "a" + hexadecimal;
-		else if (decimal == 11) hexadecimal = "b" + hexadecimal;
-		else if (decimal == 12) hexadecimal = "c" + hexadecimal;
-		else if (decimal == 13) hexadecimal = "d" + hexadecimal;
-		else if (decimal == 14) hexadecimal = "e" + hexadecimal;
-		else if (decimal == 15) hexadecimal = "f" + hexadecimal;
-	}
+			if (decimal < 10) hexadecimal = std::to_string(decimal) + hexadecimal;
+			else if (decimal == 10) hexadecimal = "a" + hexadecimal;
+			else if (decimal == 11) hexadecimal = "b" + hexadecimal;
+			else if (decimal == 12) hexadecimal = "c" + hexadecimal;
+			else if (decimal == 13) hexadecimal = "d" + hexadecimal;
+			else if (decimal == 14) hexadecimal = "e" + hexadecimal;
+			else if (decimal == 15) hexadecimal = "f" + hexadecimal;
+		}
 
 		if (down == false) {
-			for (int i = 0; i < hexadecimal.length(); i++)
+			for (int i = 0; i < hexadecimal.length(); i++) {
 				hexadecimal[i] = toupper(hexadecimal[i]);
+
 				//putchar(tolower(hexadecimal(i)));
 				cout << "\nThe hexadecimal of " << dec2 << " is " << "H0" << hexadecimal << "\n" << endl;
-		}
-
-
-		system("pause");
-	}
-}
-
-else if (choice == 3) {
-	int cosintype;
-	float cosin;
-	float output;
-	cout << "\nType in the number 1 if you want to find the Arc Cosin, type in 2 if you want to find the" << endl;
-	cout <<	"Hyperbolic Cosine, and type 3 if you want to find the Cosine. \n" << endl;
-
-	cin >> cosintype;
-
-	if (cosintype == 1) {
-
-		cout << "\nTo find Arc cosin, enter a number\n " << endl;
-		cin >> cosin;
-		output = acos(cosin);
-		cout << "\nThe equation has determined that the equation output for the Arc Cosin of " << cosin << " is " << output << " \n " << endl;
-	}
-
-	if (cosintype == 2) {
-		cout << "\nEnter a number to find Hyperbolic Cosin\n" << endl;
-		cin >> cosin;
-		output = cosh(cosin);
-		cout << "\nThe equation has determined that the equation output for the Hyperbolic Cosin of " << cosin << " is " << output << " \n " << endl;
-	}
-
-	if (cosintype == 3) {
-		cout << "\nEnter a number to find Cosin\n" << endl;
-		cin >> cosin;
-		output = cos(cosin);
-		cout << "\nThe equation has determined that the equation output for the Cosin of " << cosin << " is " << output << "\n " << endl;
-	}
-}
-
-else if (choice == 4) {
-	//string date;
-	//string dash, slash, date;
-	
-char date[11], *dptr, slash[11];
-	
-	//char a[3], b[3], c[5], d[11];
-	char d[11];
-	
-	cout << "Enter the date in the format of mm/dd/yyyy to convert to form of mm-dd-yyyy using cstring functions.\n" << endl;
-	//cin.getline(date, sizeof(date), '\n');
-	cin >> date;
-	strcpy (slash, date);
-	dptr = strtok (date, "/ ");
-	strcpy (d, dptr);
-	strcat (d, "-");
-
-	dptr = strtok ( '\0' ,"/");
-	strcat (d, dptr);
-	strcat(d, "-");
-
-	dptr = strtok ('\0', " /");
-	strcat (d, dptr);
-	
-	//replace(date.begin(), date.end(), '/', '-');
-
-	cout << "The old date of " << slash << " now reads " << d << endl;
-}
-
-else if (choice == 5) {
-
-
-	int decimal, hexadecimal, choice, pow, dec2;
-	// bool down = true;
-
-
-	cout << "\n Type in a number 3 if you want to convert hex to decimal using " << endl;
-	cout << " cstring or type 6 if you want to convert dec to hexadecimal using cstring: " << "\n" << endl;
-	cin >> choice;
-	pow = 0;
-	decimal = 0;
-
-	if (choice == 3) {
-		cout << "\n Enter the hex that you want to convert to decimal: \n " << endl;
-		cin >> hex >> hexadecimal;
-
-		cout << "The decimal  is ";
-		std::cout << std::dec << hexadecimal << endl << '\n';
-
-		//cout << "\nThe Decimal verson of " << (hexadecimal) << " is " << (decimal) << "\n" << endl;
-		system("pause");
-
-	}
-
-
-	if (choice == 6) {
-		string hexadecimal = "";
-		int decimal, dec2;
-		int chc;
-		boolalpha;
-		bool dn = 0;
-
-		cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
-		cin >> decimal;
-		dec2 = decimal;
-
-		cout << "If you want to use cstring to display the hex in lower case letters type 1 \n ";
-		cout << "If you want to display the hex in upper case type 0. " << endl;
-		cin >> chc;
-		dn == chc;
-		//if (chc = true) (dn == 1);
-		//else if (chc == false)(dn == false);
-		 {
-			if (dn == 1) {
-
-				//std::cout << std::boolalpha << dn << '\n';
-				//std::cout << std::noboolalpha << down << '\n';
-				//return 0;
-				//cin >> boolalpha >> dn;
-			
 			}
-			//if (dn == 1) {
-			
 
-			
-			
-			cout << "The Hexadecimal of " << dec2 << " is ";	std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
-		}
 
-		if (dn == 2) {
-			cout << "The Hexadecimal of " << dec2 << " is " ;
-			std::cout << showbase << uppercase << std::hex << decimal << endl << '\n';
+			system("pause");
 		}
-		system("pause");
 	}
 
+	else if (choice == 3) {
+		int cosintype;
+		float cosin;
+		float output;
+		cout << "\nType in the number 1 if you want to find the Arc Cosin, type in 2 if you want to find the" << endl;
+		cout << "Hyperbolic Cosine, and type 3 if you want to find the Cosine. \n" << endl;
 
+		cin >> cosintype;
 
+		if (cosintype == 1) {
 
-	else if (choice == 6) {
-		{
-			cout << "Exiting " << endl;
+			cout << "\nTo find Arc cosin, enter a number\n " << endl;
+			cin >> cosin;
+			output = acos(cosin);
+			cout << "\nThe equation has determined that the equation output for the Arc Cosin of " << cosin << " is " << output << " \n " << endl;
 		}
-		exit(EXIT_SUCCESS);
+
+		if (cosintype == 2) {
+			cout << "\nEnter a number to find Hyperbolic Cosin\n" << endl;
+			cin >> cosin;
+			output = cosh(cosin);
+			cout << "\nThe equation has determined that the equation output for the Hyperbolic Cosin of " << cosin << " is " << output << " \n " << endl;
+		}
+
+		if (cosintype == 3) {
+			cout << "\nEnter a number to find Cosin\n" << endl;
+			cin >> cosin;
+			output = cos(cosin);
+			cout << "\nThe equation has determined that the equation output for the Cosin of " << cosin << " is " << output << "\n " << endl;
+		}
 	}
-	cout << "To exit the program type e :\n " << endl;
-	cin >> ext;
+
+	else if (choice == 4) {
+		//string date;
+		//string dash, slash, date;
+
+		char date[11], *dptr, slash[11];
+
+		//char a[3], b[3], c[5], d[11];
+		char d[11];
+
+		cout << "Enter the date in the format of mm/dd/yyyy to convert to form of mm-dd-yyyy using cstring functions.\n" << endl;
+		//cin.getline(date, sizeof(date), '\n');
+		cin >> date;
+		strcpy(slash, date);
+		dptr = strtok(date, "/ ");
+		strcpy(d, dptr);
+		strcat(d, "-");
+
+		dptr = strtok('\0', "/");
+		strcat(d, dptr);
+		strcat(d, "-");
+
+		dptr = strtok('\0', " /");
+		strcat(d, dptr);
+
+		//replace(date.begin(), date.end(), '/', '-');
+
+		cout << "The old date of " << slash << " now reads " << d << endl;
+	}
+
+	else if (choice == 5) {
+
+
+		int decimal, hexadecimal, choice, pow, dec2;
+		// bool down = true;
+
+
+		cout << "\n Type in a number 3 if you want to convert hex to decimal using " << endl;
+		cout << " cstring or type 6 if you want to convert dec to hexadecimal using cstring: " << "\n" << endl;
+		cin >> choice;
+		pow = 0;
+		decimal = 0;
+
+		if (choice == 3) {
+			cout << "\n Enter the hex that you want to convert to decimal: \n " << endl;
+			cin >> hex >> hexadecimal;
+
+			cout << "The decimal  is ";
+			std::cout << std::dec << hexadecimal << endl << '\n';
+
+			//cout << "\nThe Decimal verson of " << (hexadecimal) << " is " << (decimal) << "\n" << endl;
+			system("pause");
+
+		}
+
+
+		if (choice == 6) {
+			string hexadecimal = "";
+			int decimal, dec2;
+			bool chc;
+			//		boolalpha;
+			bool dn;
+
+			cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
+			cin >> decimal;
+			dec2 = decimal;
+
+			cout << "If you want to use cstring to display the hex in lower case letters type true \n ";
+			cout << "If you want to display the hex in upper case type false. " << endl;
+			cin >> chc;
+			dn = chc;
+			//true == 1; 
+			//false == 0;
+
+			if (chc = true) (dn == 1);
+			else if (chc == false)(dn == 0);
+			{
+				if (dn == 1) {
+
+					std::cout << std::boolalpha << dn << '\n';
+					std::cout << std::noboolalpha << down << '\n';
+					return 0;
+					cin >> boolalpha >> dn;
+
+				}
+				//if (dn == 1) {
+
+
+
+
+				cout << "The Hexadecimal of " << dec2 << " is ";	std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
+			}
+
+			if (dn == 0) {
+				cout << "The Hexadecimal of " << dec2 << " is ";
+				std::cout << showbase << uppercase << std::hex << decimal << endl << '\n';
+			}
+			system("pause");
+		}
+
+
+
+
+		else if (choice == 6) {
+			{
+				cout << "Exiting " << endl;
+			}
+			exit(EXIT_SUCCESS);
+		}
+		cout << "To exit the program type e :\n " << endl;
+		cin >> ext;
+	}
+
 }
-
-
 }
