@@ -41,24 +41,17 @@ if (choice == 1) { //logarithm
 		cin >> logo;
 		output = log10(logo);
 		cout << "\nThe Natural Logarithm of " << logo << " is " << output << "\n" << endl;
-
 		}
 	if (type == 2) { //common logarithm
-		
 		cout << "To find the Common Logarithm, enter the number:\n " << endl;
 		cin >> logo;
 		output = log(logo);
 		cout << " The Common Logarithm of " << logo << " is " << output << "\n" << endl;
-
 	}
-
 }
-
 else if (choice == 2) {  //convert hex to dec
 	int decimal, choice, caps, pow, dec2;
 	bool down = true;
-	
-
 	cout << "\n Type in a number 3 if you want to convert hex to decimal or type 6 if you want to convert dec to hedadecimal: " << "\n" << endl;
 	cin >> (choice);
 	pow = 0;
@@ -133,25 +126,7 @@ else if (choice == 2) {  //convert hex to dec
 
 		system("pause");
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
 
 else if (choice == 3) {
 	int cosintype;
@@ -242,8 +217,8 @@ else if (choice == 5) {
 
 	if (choice == 6) {
 		string hexadecimal = "";
-		int decimal;
-		char chc;
+		int decimal, dec2;
+		int chc;
 		boolalpha;
 		bool dn = 0;
 
@@ -251,15 +226,16 @@ else if (choice == 5) {
 		cin >> decimal;
 		dec2 = decimal;
 
-		cout << "If you want to use cstring to display the hex in lower case letters type true \n ";
-		cout << "If you want to display the hex in upper case type false. " << endl;
+		cout << "If you want to use cstring to display the hex in lower case letters type 1 \n ";
+		cout << "If you want to display the hex in upper case type 0. " << endl;
 		cin >> chc;
-		if (chc == true) (dn == 1);
-		else if (chc == false)(dn == false);
+		dn == chc;
+		//if (chc = true) (dn == 1);
+		//else if (chc == false)(dn == false);
 		 {
 			if (dn == 1) {
 
-				std::cout << std::boolalpha << dn << '\n';
+				//std::cout << std::boolalpha << dn << '\n';
 				//std::cout << std::noboolalpha << down << '\n';
 				//return 0;
 				//cin >> boolalpha >> dn;
@@ -270,19 +246,12 @@ else if (choice == 5) {
 
 			
 			
-			cout << "The Hexadecmil of " << dec2 << " is " << endl;
-			std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
-			system("pause");
+			cout << "The Hexadecimal of " << dec2 << " is ";	std::cout << showbase << _tolower_l << std::hex << decimal << endl << '\n';
 		}
 
-		if (dn == 0) {
-			//if (dn == 2) {
-			//cout << "\nEnter the decimal that you want to convert to hex: \n " << endl;
-			//cin >> decimal;
-			
-			cout << "The Hexadecmil of " << dec2 << " is " << endl;
+		if (dn == 2) {
+			cout << "The Hexadecimal of " << dec2 << " is " ;
 			std::cout << showbase << uppercase << std::hex << decimal << endl << '\n';
-			system("pause");
 		}
 		system("pause");
 	}
